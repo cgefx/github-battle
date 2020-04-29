@@ -9,14 +9,7 @@ import {
 } from 'react-icons/fa';
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
-	const languages = [
-		'All',
-		'JavaScript',
-		'Ruby',
-		'Java',
-		'CSS',
-		'Python',
-	];
+	const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
 	return (
 		<ul className='flex-center'>
@@ -24,11 +17,7 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
 				<li key={language}>
 					<button
 						className='btn-clear nav-link'
-						style={
-							language === selected
-								? { color: 'rgb(187,46,31)' }
-								: null
-						}
+						style={language === selected ? { color: 'rgb(187,46,31)' } : null}
 						onClick={() => onUpdateLanguage(language)}>
 						{language}
 					</button>
@@ -84,10 +73,7 @@ function ReposGrid({ repos }) {
 								{forks.toLocaleString()} forks
 							</li>
 							<li>
-								<FaExclamationTriangle
-									color='rgb(241, 138, 147)'
-									size={22}
-								/>
+								<FaExclamationTriangle color='rgb(241, 138, 147)' size={22} />
 								{open_issues.toLocaleString()} open
 							</li>
 						</ul>
