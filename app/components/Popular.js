@@ -9,7 +9,14 @@ import {
 } from 'react-icons/fa';
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
-	const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+	const languages = [
+		'All',
+		'JavaScript',
+		'Ruby',
+		'Java',
+		'CSS',
+		'Python',
+	];
 
 	return (
 		<ul className='flex-center'>
@@ -17,7 +24,11 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
 				<li key={language}>
 					<button
 						className='btn-clear nav-link'
-						style={language === selected ? { color: 'rgb(187,46,31)' } : null}
+						style={
+							language === selected
+								? { color: 'rgb(187,46,31)' }
+								: null
+						}
 						onClick={() => onUpdateLanguage(language)}>
 						{language}
 					</button>
@@ -47,7 +58,7 @@ function ReposGrid({ repos }) {
 				const { login, avatar_url } = owner;
 
 				return (
-					<li key={html_url} className='repo bg-light'>
+					<li key={html_url} className='card bg-light'>
 						<h4 className='header-lg center-text'>#{index + 1}</h4>
 						<img
 							src={avatar_url}
@@ -73,7 +84,10 @@ function ReposGrid({ repos }) {
 								{forks.toLocaleString()} forks
 							</li>
 							<li>
-								<FaExclamationTriangle color='rgb(241, 138, 147)' size={22} />
+								<FaExclamationTriangle
+									color='rgb(241, 138, 147)'
+									size={22}
+								/>
 								{open_issues.toLocaleString()} open
 							</li>
 						</ul>
@@ -148,7 +162,7 @@ export class Popular extends Component {
 
 				{this.isLoading() && <p>LOADING</p>}
 
-				{error && <p>{error}</p>}
+				{error && <p className='center-text error'>{error}</p>}
 
 				{repos[selectedLanguage] && (
 					<ReposGrid repos={repos[selectedLanguage]} />
