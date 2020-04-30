@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Results from './Results';
 
 import {
 	FaUserFriends,
@@ -134,6 +135,7 @@ export default class Battle extends Component {
 		this.state = {
 			playerOne: null,
 			playerTwo: null,
+			battle: false,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -153,7 +155,11 @@ export default class Battle extends Component {
 	}
 
 	render() {
-		const { playerOne, playerTwo } = this.state;
+		const { playerOne, playerTwo, battle } = this.state;
+
+		if (battle === true) {
+			return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+		}
 		return (
 			<>
 				<Instructions />
@@ -191,6 +197,14 @@ export default class Battle extends Component {
 							/>
 						)}
 					</div>
+
+					{playerOne && playerTwo && (
+						<button
+							className='btn dark-btn btn-space'
+							onClick={() => this.setState({ battle: true })}>
+							Battle
+						</button>
+					)}
 				</div>
 			</>
 		);
