@@ -24,19 +24,11 @@ function Instructions() {
 				</li>
 				<li>
 					<h3 className='header-sm'>Battle</h3>
-					<FaFighterJet
-						className='bg-light'
-						color='#727272'
-						size={140}
-					/>
+					<FaFighterJet className='bg-light' color='#727272' size={140} />
 				</li>
 				<li>
 					<h3 className='header-sm'>See the winners</h3>
-					<FaTrophy
-						className='bg-light'
-						color='rgb(255, 215, 0)'
-						size={140}
-					/>
+					<FaTrophy className='bg-light' color='rgb(255, 215, 0)' size={140} />
 				</li>
 			</ol>
 		</div>
@@ -85,7 +77,8 @@ class PlayerInput extends Component {
 					<button
 						className='btn dark-btn'
 						type='submit'
-						disabled={!this.state.username}>
+						disabled={!this.state.username}
+					>
 						Submit
 					</button>
 				</div>
@@ -158,7 +151,19 @@ export default class Battle extends Component {
 		const { playerOne, playerTwo, battle } = this.state;
 
 		if (battle === true) {
-			return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+			return (
+				<Results
+					playerOne={playerOne}
+					playerTwo={playerTwo}
+					onReset={() =>
+						this.setState({
+							playerOne: null,
+							playerTwo: null,
+							battle: false,
+						})
+					}
+				/>
+			);
 		}
 		return (
 			<>
@@ -170,9 +175,7 @@ export default class Battle extends Component {
 						{playerOne === null ? (
 							<PlayerInput
 								label='Player One'
-								onSubmit={player =>
-									this.handleSubmit('playerOne', player)
-								}
+								onSubmit={player => this.handleSubmit('playerOne', player)}
 							/>
 						) : (
 							<PlayerPreview
@@ -185,9 +188,7 @@ export default class Battle extends Component {
 						{playerTwo === null ? (
 							<PlayerInput
 								label='Player Two'
-								onSubmit={player =>
-									this.handleSubmit('playerTwo', player)
-								}
+								onSubmit={player => this.handleSubmit('playerTwo', player)}
 							/>
 						) : (
 							<PlayerPreview
@@ -201,7 +202,8 @@ export default class Battle extends Component {
 					{playerOne && playerTwo && (
 						<button
 							className='btn dark-btn btn-space'
-							onClick={() => this.setState({ battle: true })}>
+							onClick={() => this.setState({ battle: true })}
+						>
 							Battle
 						</button>
 					)}
