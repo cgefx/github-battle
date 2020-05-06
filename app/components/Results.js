@@ -1,5 +1,9 @@
 import React from 'react';
 import { battle } from '../utils/api';
+import Card from './Card';
+import PropTypes from 'prop-types';
+import Loading from './Loading';
+import Tooltip from './Tooltip';
 import {
 	FaCompass,
 	FaBriefcase,
@@ -8,10 +12,6 @@ import {
 	FaCode,
 	FaUser,
 } from 'react-icons/fa';
-import Card from './Card';
-import PropTypes from 'prop-types';
-import Loading from './Loading';
-import Tooltip from './Tooltip';
 
 function ProfileList({ profile }) {
 	return (
@@ -116,10 +116,7 @@ export default class Results extends React.Component {
 						<ProfileList profile={loser.profile} />
 					</Card>
 				</div>
-				<button
-					className='btn dark-btn btn-space'
-					onClick={this.props.onReset}
-				>
+				<button className='btn dark-btn btn-space' onClick={this.props.onReset}>
 					Reset
 				</button>
 			</>

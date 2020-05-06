@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Results from './Results';
+import { ThemeConsumer } from '../contexts/theme';
 
 import {
 	FaUserFriends,
@@ -8,7 +9,6 @@ import {
 	FaTrophy,
 	FaTimesCircle,
 } from 'react-icons/fa';
-import { ThemeConsumer } from '../contexts/theme';
 
 function Instructions() {
 	return (
