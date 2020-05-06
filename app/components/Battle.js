@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Results from './Results';
 import { ThemeConsumer } from '../contexts/theme';
 import { Link } from 'react-router-dom';
 
